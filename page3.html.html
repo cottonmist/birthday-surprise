@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Make a Wish</title>
+
+<style>
+
+body{
+margin:0;
+background:#ffd6e7;
+font-family:Arial;
+text-align:center;
+overflow:hidden;
+}
+
+/* COUNTDOWN */
+#countdown{
+font-size:140px;
+margin-top:30vh;
+animation:zoom 1s forwards;
+}
+
+@keyframes zoom{
+0%{transform:scale(3); opacity:0;}
+100%{transform:scale(1); opacity:1;}
+}
+
+/* SURPRISE PART */
+#surprise{
+display:none;
+margin-top:20vh;
+}
+
+.cake{
+font-size:120px;
+}
+
+.candle{
+font-size:50px;
+animation:flicker 0.4s infinite;
+}
+
+@keyframes flicker{
+0%{opacity:1;}
+50%{opacity:0.4;}
+100%{opacity:1;}
+}
+
+h1{
+color:#ff0066;
+margin-top:20px;
+}
+
+button{
+margin-top:40px;
+padding:15px 35px;
+font-size:20px;
+background:#ff4da6;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff1a8c;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="countdown">3</div>
+
+<div id="surprise">
+
+<div class="cake">🎂</div>
+<div class="candle">🕯️</div>
+
+<h1>Make a wish darling ✨</h1>
+
+<button onclick="location.href='page4.html'">
+Click here for the final surprise ❤️
+</button>
+
+</div>
+
+<script>
+
+let num=3;
+let c=document.getElementById("countdown");
+
+let timer=setInterval(()=>{
+num--;
+
+if(num>0){
+c.innerHTML=num;
+c.style.animation="none";
+setTimeout(()=>{c.style.animation="zoom 1s forwards";},10);
+}
+
+else{
+clearInterval(timer);
+c.style.display="none";
+document.getElementById("surprise").style.display="block";
+}
+
+},1000);
+
+</script>
+
+</body>
+</html>
